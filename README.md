@@ -95,11 +95,12 @@ foreach ($history->getStatements() as $statement)
         $statement->getBalance(),
         $statement->getCurrency(),
         $statement->getTransactionDate()->format('Y-m-d H:i:s'),
-                                                                       $statement->getDescription()
+        $statement->getDescription()
     );
 }
 ```
 
 # To read
 
+* https://api.privatbank.ua/#p24/balance
 * https://api.privatbank.ua/#p24/orders
