@@ -1,0 +1,32 @@
+{
+  "name": "igormukhingmailcom/privatbank-bundle",
+  "type": "bundle",
+  "keywords": [
+    "privatbank",
+    "privat24",
+    "api",
+    "merchant",
+    "client",
+    "sdk",
+    "symfony",
+    "bundle"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Igor Mukhin",
+      "email": "igor.mukhin@gmail.com"
+    }
+  ],
+  "require": {
+    "ext-curl": "*",
+    "php": ">=5.6",
+    "symfony/symfony": ">=2.8"
+  },
+  "autoload": {
+    "psr-0": { "Mukhin\\PrivatbankBundle\\": "/" }
+  },
+  "config": {
+    "bin-dir": "bin"
+  }
+}

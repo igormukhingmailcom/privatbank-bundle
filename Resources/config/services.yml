@@ -1,0 +1,2 @@
+parameters:
+    mukhin_privatbank.merchant.class: Mukhin\PrivatbankBundle\Merchant
