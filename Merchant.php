@@ -2,6 +2,7 @@
 
 namespace Mukhin\PrivatbankBundle;
 
+use Mukhin\PrivatbankBundle\Exception\PrivatbankException;
 use Mukhin\PrivatbankBundle\Model\Balance;
 use Mukhin\PrivatbankBundle\Model\Statements;
 
@@ -195,12 +196,12 @@ class Merchant
         $response = new \SimpleXMLElement($this->executeCurl($options));
 
         if (isset($response->data->error)) {
-            throw new \Exception((string)$response->data->error['message']);
+            throw new PrivatbankException((string)$response->data->error['message']);
         }
 
         // Fuck, Privatbank, you kidding me?
         if (isset($response->data->info->error)) {
-            throw new \Exception((string)$response->data->info->error);
+            throw new PrivatbankException((string)$response->data->info->error);
         }
 
         return $response;
@@ -216,12 +217,12 @@ class Merchant
 
         $result = curl_exec($this->curl);
         if ($result === false) {
-            throw new \Exception(curl_error($this->curl), curl_errno($this->curl));
+            throw new PrivatbankException(curl_error($this->curl), curl_errno($this->curl));
         }
 
         $httpCode = curl_getinfo($this->curl, CURLINFO_HTTP_CODE);
         if (!in_array($httpCode, array(200))) {
-            throw new \Exception(sprintf('Server returned HTTP code %s', $httpCode), $httpCode);
+            throw new PrivatbankException(sprintf('Server returned HTTP code %s', $httpCode), $httpCode);
         }
         return $result;
     }

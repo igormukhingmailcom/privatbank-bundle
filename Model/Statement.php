@@ -61,7 +61,7 @@ class Statement
     {
         list($sourceAmount, $sourceCurrency) = explode(' ', (string)$statement['amount']);
         list($amount, $currency) = explode(' ', (string)$statement['cardamount']);
-        list($balance, ) = explode(' ', (string)$statement['rest']);
+        list($balance,) = explode(' ', (string)$statement['rest']);
         $transactionDate = \DateTime::createFromFormat(
             'Y-m-d H:i:s',
             sprintf('%s %s', (string)$statement['trandate'], (string)$statement['trantime']),
