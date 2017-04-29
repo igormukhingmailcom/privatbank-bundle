@@ -1,7 +1,7 @@
 # MukhinPrivatbankBundle
 
-+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/igormukhingmailcom/privatbank-bundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/igormukhingmailcom/privatbank-bundle/?branch=master)
-+[![Code Coverage](https://scrutinizer-ci.com/g/igormukhingmailcom/privatbank-bundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/igormukhingmailcom/privatbank-bundle/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/igormukhingmailcom/privatbank-bundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/igormukhingmailcom/privatbank-bundle/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/igormukhingmailcom/privatbank-bundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/igormukhingmailcom/privatbank-bundle/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/igormukhingmailcom/privatbank-bundle/badges/build.png?b=master)](https://scrutinizer-ci.com/g/igormukhingmailcom/privatbank-bundle/build-status/master)
 
 This bundle provides ability to interact with Privatbank/Privat24 API (https://api.privatbank.ua/p24api).
@@ -11,11 +11,11 @@ Fill free to contribute.
 
 ## Installation
 
-```
+```bash
 composer require igormukhingmailcom/privatbank-bundle
 ```
 
-```
+```php
 # app/AppKernel.php
 class AppKernel extends Kernel
 {
@@ -31,7 +31,7 @@ class AppKernel extends Kernel
 
 ## Configuration
 
-```
+```yaml
 # app/config/parameters.yml
 parameters:
     ...
@@ -40,7 +40,7 @@ parameters:
     privatbank_card_number: 4149437864339229
 ```
 
-```
+```yaml
 # app/config/parameters.yml.dist
 parameters:
     ...
@@ -50,7 +50,7 @@ parameters:
     privatbank_card_number: ~
 ```
 
-```
+```yaml
 # app/config/config.yml
 mukhin_privatbank:
     merchants:
@@ -66,7 +66,7 @@ will be created.
 
 # Usage
 
-```
+```php
 $merchant = $this->get('mukhin_privatbank.merchant.my_merchant_name');
 
 # Balance
