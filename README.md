@@ -2,6 +2,7 @@
 
 +[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/igormukhingmailcom/privatbank-bundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/igormukhingmailcom/privatbank-bundle/?branch=master)
 +[![Code Coverage](https://scrutinizer-ci.com/g/igormukhingmailcom/privatbank-bundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/igormukhingmailcom/privatbank-bundle/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/igormukhingmailcom/privatbank-bundle/badges/build.png?b=master)](https://scrutinizer-ci.com/g/igormukhingmailcom/privatbank-bundle/build-status/master)
 
 This bundle provides ability to interact with Privatbank/Privat24 API (https://api.privatbank.ua/p24api).
 
