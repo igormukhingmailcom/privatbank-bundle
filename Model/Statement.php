@@ -2,6 +2,8 @@
 
 namespace Mukhin\PrivatbankBundle\Model;
 
+use Mukhin\PrivatbankBundle\Exception\PrivatbankResponseParsingException;
+
 class Statement
 {
     /** @var string */
@@ -53,20 +55,26 @@ class Statement
     /**
      * @param \SimpleXMLElement $statement
      * @return $this
+     * @throws PrivatbankResponseParsingException
      */
     public static function fromResponse(\SimpleXMLElement $statement)
     {
         list($sourceAmount, $sourceCurrency) = explode(' ', (string)$statement['amount']);
         list($amount, $currency) = explode(' ', (string)$statement['cardamount']);
-        list($balance, $balanceCurrency) = explode(' ', (string)$statement['rest']);
+        list($balance, ) = explode(' ', (string)$statement['rest']);
+        $transactionDate = \DateTime::createFromFormat(
+            'Y-m-d H:i:s',
+            sprintf('%s %s', (string)$statement['trandate'], (string)$statement['trantime']),
+            new \DateTimeZone('Europe/Kiev')
+        );
+
+        if (false === $transactionDate) {
+            throw new PrivatbankResponseParsingException("Error occured during parsing transaction date from Privatbank API endpoint response");
+        }
 
         return (new self)
             ->setCardNumber((string)$statement['card'])
-            ->setTransactionDate(\DateTime::createFromFormat(
-                'Y-m-d H:i:s',
-                sprintf('%s %s', (string)$statement['trandate'], (string)$statement['trantime']),
-                new \DateTimeZone('Europe/Kiev')
-            ))
+            ->setTransactionDate($transactionDate)
             ->setTransactionCode((string)$statement['appcode'])
             ->setAmount(floatval($amount))
             ->setBalance(floatval($balance))
@@ -104,7 +112,7 @@ class Statement
      *
      * @return $this
      */
-    public function setTransactionDate($transactionDate)
+    public function setTransactionDate(\DateTime $transactionDate)
     {
         $this->transactionDate = $transactionDate;
 
