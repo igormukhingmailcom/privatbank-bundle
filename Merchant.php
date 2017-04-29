@@ -175,9 +175,8 @@ class Merchant
      * Call method
      *
      * @param string $method
-     * @param array|null $data
-     *
-     * @return mixed
+     * @param string|null $data
+     * @return \SimpleXMLElement
      */
     protected function call($method = '', $data = null)
     {

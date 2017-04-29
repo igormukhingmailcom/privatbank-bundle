@@ -17,7 +17,7 @@ class Balance
     {
         return (new self)
             ->setCard(Card::fromResponse($cardBalance->card))
-            ->setBalance((float)$cardBalance->balance)
+            ->setBalance(floatval((string)$cardBalance->balance))
             ->setBalanceDate(new \DateTime(
                 $cardBalance->balanceDate,
                 new \DateTimeZone('Europe/Kiev')

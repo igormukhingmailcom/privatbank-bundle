@@ -31,15 +31,15 @@ class Statement
     /** @var string */
     protected $currency;
 
-    /** @var string */
+    /** @var float */
     protected $balance;
 
     /** @var string */
     protected $description;
 
     /**
-     * @param \SimpleXMLElement $statement
-     * @return $this
+     * @param \SimpleXMLElement $statements
+     * @return $this[]
      */
     public static function arrayFromResponse(\SimpleXMLElement $statements)
     {
